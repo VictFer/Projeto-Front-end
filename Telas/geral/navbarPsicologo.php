@@ -9,7 +9,7 @@
                         <div class='ms-2 me-auto'>\
                             <div class='fw-bold'>\
                                 <img src='img/avatar1.png' alt='Avatar' class='avatar'> \
-                                Psicologo 1 \
+                                Paciente 1 \
                             </div>\
                             Content for list item \
                         </div> \
@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="BuscarPsicologo.php">Buscar Psicólogos</a>
+                            <a class="nav-link active" aria-current="page" href="#">*Gerenciamento*</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="FillChats()">Conversas</a>
