@@ -14,7 +14,18 @@
       <title>Login</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      
+      <script>
+         function Authentication(){
+            var email = document.getElementById('textEmail').value;
+            var password = document.getElementById('textSenha').value;
+            var auth = true; /*Função retorna verdadeiro ou falso*/
+            if (auth === true){
+               window.location.href = 'AlterarCliente.php'; ;
+            }else{
+               alert("E-mail ou Senha incorretos. Tente Novamente!");
+            }
+         }
+      </script>
       <style>
          body {
             padding-top: 40px;
@@ -83,12 +94,12 @@
             <h1>Entrar</h1>
             
          <input type = "text" class = "form-control" 
-               name = "email" placeholder = "Email" required ></br>
+               name = "email" placeholder = "Email" id="textEmail" required ></br>
             
          <input type = "password" class = "form-control"
-               name = "senha" placeholder = "Senha" required>
+               name = "senha" placeholder = "Senha" id="textSenha" required>
 
-         <button class = "btn btn-lg btn-primary btn-block" type = "submit" name = "entrar">Entrar</button>
+         <button class = "btn btn-lg btn-primary btn-block" onclick="Authentication()" type = "submit" name = "entrar">Entrar</button>
             
          <a href = "CadastroCliente.php">Não possui uma conta? Cadastre-se
          </form>                  
