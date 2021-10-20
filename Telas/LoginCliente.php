@@ -18,7 +18,7 @@
          function Authentication(){
             var email = document.getElementById('textEmail').value;
             var password = document.getElementById('textSenha').value;
-            var auth = true; /*Função retorna verdadeiro ou falso*/
+            var auth = false; /*Função retorna verdadeiro ou falso*/
             if (auth === true){
                window.location.href = 'AlterarCliente.php'; ;
             }else{
@@ -39,6 +39,7 @@
             margin: 0 auto;
             border-radius:15px;
             background-color: #ffffff;
+            align:center;
          }
          
          .form-signin,
@@ -76,6 +77,11 @@
 
          }
 
+         .btncenter{
+            align:center;
+            width:auto;
+         }
+
          a{
              font-size: 15px;
              color: #0057B7;
@@ -89,7 +95,7 @@
 	
    <body>
                         
-        <form class = "form-signin" role = "form"> 
+      <div class="container form-signin ">
             
             <h1>Entrar</h1>
             
@@ -98,10 +104,11 @@
             
          <input type = "password" class = "form-control"
                name = "senha" placeholder = "Senha" id="textSenha" required>
-
-         <button class = "btn btn-lg btn-primary btn-block" onclick="Authentication()" type = "submit" name = "entrar">Entrar</button>
-            
+         <div class="btncenter">
+            <button class = "btn btn-lg btn-primary btn-block" onClick="Authentication()" name = "entrar">Entrar</button>
+         </div>
+         <br>   
          <a href = "CadastroCliente.php">Não possui uma conta? Cadastre-se
-         </form>                  
+      </div>                  
    </body>
 </html>

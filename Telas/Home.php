@@ -17,7 +17,7 @@
 
 <style>
     .container-fluid{
-        margin-left:1450px;
+        /*margin-left:1450px;*/
     }
 
     .nav-link{
@@ -50,6 +50,8 @@
             </div>
 </nav>
 
+<br>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -59,7 +61,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         <a href="CadastroCliente.php">
-            <img src="img/Psico_no_Precinho-logos_white.png" class="d-block w-100" alt="..." >
+            <img src="img/avatar1.png" class="d-block w-100" width='400' height='400' alt="..." >
         </a>
     </div>
     <div class="carousel-item">
@@ -79,3 +81,4 @@
 </div>
 
 </body>
+</html>
