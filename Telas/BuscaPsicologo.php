@@ -31,7 +31,7 @@
                     var genero = "Feminino";
                 }else if (ind === true){
                     var genero = "";
-                }
+                }else { var genero = "erro na selecao";}
                 var estado = document.getElementById("Estados").value;
                 var crp = document.getElementById("crp").value;
                 var valorMinimo = document.getElementById("valormin").value;
