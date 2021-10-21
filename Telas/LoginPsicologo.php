@@ -9,7 +9,7 @@
             var email = document.getElementById('textEmail').value;
             var password = document.getElementById('textSenha').value;
             var crp = document.getElementById('textCRP').value;
-            var auth = false; /*Função retorna verdadeiro ou falso*/
+            var auth = true; /*Função retorna verdadeiro ou falso*/
             if (auth === true){
                window.location.href = 'AlterarCliente.php';    //tela de exemplo para saber se funciona, a tela inicial do psicologo sera Gerenciamento ou a tela com as informações dele.
             }else{
@@ -63,8 +63,7 @@
          }
 
          h2{
-             text-align:center;
-             
+            text-align:center;
          }
 
          button[type="submit"]{
@@ -102,9 +101,9 @@
                name = "crp" id="textCRP" placeholder = "CRP" required ></br>
 
             <h2>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit" name = "entrar">
-                Entrar
-            </button>
+               <button class = "btn btn-lg btn-primary btn-block" onClick="Authentication()" name = "entrar">
+                  Entrar
+               </button>
             <h2>
             <a href = "CadastroPsicologo.php">Não possui uma conta? Cadastre-se
       </div>                  

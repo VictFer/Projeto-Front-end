@@ -47,6 +47,9 @@
             margin-bottom: 15px;
          }
          
+         h2{
+             text-align:center;
+         }
                  
          .form-signin .form-control {
             position: relative;
@@ -104,9 +107,9 @@
             
          <input type = "password" class = "form-control"
                name = "senha" placeholder = "Senha" id="textSenha" required>
-         <div class="btncenter">
+         <h2>
             <button class = "btn btn-lg btn-primary btn-block" onClick="Authentication()" name = "entrar">Entrar</button>
-         </div>
+         </h2>
          <br>   
          <a href = "CadastroCliente.php">Não possui uma conta? Cadastre-se
       </div>                  

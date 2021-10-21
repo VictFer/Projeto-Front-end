@@ -18,6 +18,71 @@
                 
                 document.getElementById("conversas").innerHTML = listadd;
             }
+            
+            function SearchPsico(){
+                var nome = document.getElementById("nome").value;
+                var masc = document.querySelector('Masculino').checked;
+                var fem = document.querySelector('Feminino').checked;
+                var ind = document.querySelector('Indiferente').checked;
+                if (masc === true){
+                    var genero = "Masculino";
+                }else if (fem === true){
+                    var genero = "Feminino";
+                }else if (ind === true){
+                    var genero = "";
+                }
+                var estado = document.getElementById("Estados").value;
+                var crp = document.getElementById("crp").value;
+                var valorMinimo = document.getElementById("valormin").value;
+                var valorMaximo = document.getElementById("valormax").value;
+                alert(nome + masc + fem + ind + genero + estado + crp + valorMinimo + ValorMaximo);
+                //executar busca com os filtros no banco e retornar as informações NOME, VALORES, CRP, DESCRIÇÃO
+                //concatenar o resultado dentro da segunte string para cada resultado encontrado
+                const ExampleResult ="\
+                <a class='list-group-item list-group-item-action' data-bs-toggle='modal' data-bs-target='#VerPsicologo' href='#' onClick='SelectPsico()'>\
+                    <div class='ms-2 me-auto'>\
+                            <ul class='list-inline'>\
+                                <li class='list-inline-item'>\
+                                    <div class='d-flex w-100 justify-content-between'>\
+                                        <img src='img/avatar2.png' alt='Avatar' class='profile'> \
+                                    </div>\
+                                </li>\
+                                <li class='list-inline-item'> \
+                                    <div class='d-flex w-100 justify-content-between'>\
+                                        <h5 class='mb-1'>\
+                                            Victor Fernandes \
+                                        </h5>\
+                                        <small>\
+                                            CRP - SP\
+                                        </small>\
+                                    </div>\
+                                    <p class='mb-1'>\
+                                        RS 0,00 - R$ 60,00 / sessão \
+                                    </p> \
+                                    <small> \
+                                        Descrição disponibilizada pelo psicologo \
+                                    </small> \
+                                </li> \
+                            </ul> \
+                        </div> \
+                    </div>  \
+                </a>";
+                document.getElementById("resultsArea").innerHTML = ExampleResult;
+            }
+
+            function SelectPsico(){
+                //var idPsicologo = document.getElementById("idPsicoSelected").value;
+                //puxa informações daquele psicologo
+                var nomePsicologo = "Victor Fernandes";
+                var crpPsicologo = "12345 - SP";
+                var precoPsicologo = "De R$ 0,00 - R$ 60,00 / sessão";
+                var descricaoPsicologo = "Descrção escrita pelo Psicologo";
+                //document.getElementById("conversas").innerHTML = listadd; adiciona a imagem certa
+                document.getElementById("NomePsicologo").innerText = nomePsicologo;
+                document.getElementById("CRPPsicologo").innerText = crpPsicologo;
+                document.getElementById("PrecoPsicologo").innerText = precoPsicologo;
+                document.getElementById("DescricaoPsicologo").innerText = descricaoPsicologo;
+            }
         </script>
         <style>
             .avatar {
@@ -30,6 +95,12 @@
                 vertical-align: middle;
                 width: 100px;
                 height: 100px;
+                border-radius: 50%;
+            }
+            .profileSelected{
+                vertical-align: middle;
+                width: 200px;
+                height: 200px;
                 border-radius: 50%;
             }
             .searchArea {
@@ -68,6 +139,9 @@
                 padding: 10px;
                 font-size: 16px;
                 margin-bottom: 25px;        
+            }
+            .PsicologoProfile{
+                text-align: center;
             }
         </style>
 
@@ -111,75 +185,84 @@
 
 
         <div class="container-fluid searchArea">
-            <form class = "form-signin" role = "form">
+            <div class = "form-signin">
                 <h1 class='titulo'>Busque um Psicólogo</h1>
                 <div class="col">
-                    <input type="text" class="form-control" name = "nome" placeholder="Nome">
+                    <input type="text" class="form-control" name = "nome" id="nome" placeholder="Nome">
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
+                            <input class="form-check-input" id="Masculino" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Masculino
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="Feminino" value="option2">
+                            <input class="form-check-input" id="Feminino" type="radio" name="exampleRadios" id="Feminino" value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Feminino
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="Indiferente" value="option2">
+                            <input class="form-check-input" id="Indiferente" type="radio" name="exampleRadios" id="Indiferente" value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Indiferente
                             </label>
                         </div>
                     </div>
                     <div class="col">
-                        <select id="estado" class="form-control">
-                        <option selected>Estado</option>
-                        <option>SP</option>
+                        <select id="Estados" class="form-control">
+                        <option>Estado</option>
+                        <option value = "SP" >SP</option>
                         </select>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name = "crp" placeholder="CRP">
+                        <input type="text" class="form-control" name = "crp" id = "crp" placeholder="CRP">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name = "valormi" placeholder="Valor Mínimo">
+                        <input type="text" class="form-control" name = "valormin" id="valormin" placeholder="Valor Mínimo">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name = "valormax" placeholder="Valor Máximo">
+                        <input type="text" class="form-control" name = "valormax" id="valormax" placeholder="Valor Máximo">
                     </div>
                 </div>
                 <div class="col">
-                    <button class = "btn btn-lg btn-primary btn-block" type = "submit" name = "entrar">Buscar Psicólogos</button>
+                    <button class = "btn btn-lg btn-primary btn-block" name = "btnSearch" onClick='SearchPsico()'>Buscar Psicólogos</button>
                 </div>
-            </form>
+            </div>
         </div>
 
         <br>
 
         <div class="container-fluid" id="resultsArea">
+            
+        </div>
 
-            <a href='#' class='list-group-item list-group-item-action'>
-                <div class='ms-2 me-auto'>
-                    <div class='fw-bold'>
-                        <h5 class="mb-1">
-                            <img src='img/avatar2.png' alt='Avatar' class='profile'> 
-                            <p>Psicologo 1</p>
-                            Content for list item 
-                        </h5>
+        <div class="modal fade" id="VerPsicologo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="NomePsicologo" id="staticBackdropLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div>
-                        Content for list item 
+                    <div class="modal-body">
+                        <div class="PsicologoProfile">
+                            <img src='img/avatar2.png'  alt='Avatar' class='profileSelected'> 
+                        </div>
+                        <div id="PsicologoProfile">
+                            <h2 id="CRPPsicologo"></h2>
+                            <h5 id="PrecoPsicologo"></h5>
+                            <p id="DescricaoPsicologo"></p>
+                        </div>
                     </div>
-                </div> 
-                <span class='badge bg-primary rounded-pill'>14</span> 
-            </a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Iniciar Conversa</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
