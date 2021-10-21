@@ -21,9 +21,10 @@
             
             function SearchPsico(){
                 var nome = document.getElementById("nome").value;
-                var masc = document.querySelector('Masculino').checked;
-                var fem = document.querySelector('Feminino').checked;
-                var ind = document.querySelector('Indiferente').checked;
+                var masc = document.getElementById('Masculino').checked;
+                alert('veio até aqui');
+                var fem = document.getElementById('Feminino').checked;
+                var ind = document.getElementById('Indiferente').checked;
                 if (masc === true){
                     var genero = "Masculino";
                 }else if (fem === true){
@@ -35,7 +36,7 @@
                 var crp = document.getElementById("crp").value;
                 var valorMinimo = document.getElementById("valormin").value;
                 var valorMaximo = document.getElementById("valormax").value;
-                alert(nome + masc + fem + ind + genero + estado + crp + valorMinimo + ValorMaximo);
+                alert( '' + nome + '' + masc + '' + fem + '' + ind + '' + genero + '' + estado + '' + crp + '' + valorMinimo + '' + ValorMaximo);
                 //executar busca com os filtros no banco e retornar as informações NOME, VALORES, CRP, DESCRIÇÃO
                 //concatenar o resultado dentro da segunte string para cada resultado encontrado
                 const ExampleResult ="\
