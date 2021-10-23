@@ -36,7 +36,7 @@
                 bottom: 0;
                 left: 0;*/
                 width:100%;
-                display: inline; /* the default for span */
+                display: inline; /* the default for span *//
                 border:1px solid;
                 background-color: white;
                 border-color: #a4aebf ;

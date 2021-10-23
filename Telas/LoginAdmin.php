@@ -78,18 +78,16 @@
 	
    <body>
                         
-        <form class = "form-signin" role = "form"> 
+      <form class = "form-signin" role = "form"> 
             
-            <h1>Entrar</h1>
+         <h1>Entrar</h1>
             
-         <input type = "text" class = "form-control" 
-               name = "email" placeholder = "Email" required ></br>
+         <input type = "text" class = "form-control" name = "email" placeholder = "Email" required ></br>
             
-         <input type = "password" class = "form-control"
-               name = "senha" placeholder = "Senha" required>
+         <input type = "password" class = "form-control" name = "senha" placeholder = "Senha" required>
 
          <button class = "btn btn-lg btn-primary btn-block" type = "submit" name = "entrar">Entrar</button>
             
-         </form>                  
+      </form>                  
    </body>
 </html>

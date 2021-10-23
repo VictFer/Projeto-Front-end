@@ -156,7 +156,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="BuscarPsicologo.php">Buscar Pacientes</a>
+                            <a class="nav-link active" aria-current="page" href="BuscarPsicologo.php">Buscar Psicólogo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="FillChats()">Conversas</a>
@@ -179,6 +179,7 @@
                 </div>
             </div>
         </nav>
+
         <div class="container-fluid searchArea">
             <div class = "form-signin">
                 <h1 class='titulo'>Busque um Psicólogo</h1>
@@ -208,8 +209,34 @@
                     </div>
                     <div class="col">
                         <select id="Estados" class="form-control">
-                        <option>Estado</option>
-                        <option value = "SP" >SP</option>
+                        <option selected value="">Estado</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AM">AM</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MG">MG</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="PR">PR</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="RS">RS</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
                         </select>
                     </div>
                     <div class="col">
@@ -229,10 +256,13 @@
                 </div>
             </div>
         </div>
+
         <br>
+        
         <div class="container-fluid" id="resultsArea">
             
         </div>
+
         <div class="modal fade" id="VerPsicologo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -244,7 +274,7 @@
                         <div class="PsicologoProfile">
                             <img src='img/avatar2.png'  alt='Avatar' class='profileSelected'> 
                         </div>
-                        <div id="PsicologoProfile">
+                        <div class="PsicologoProfile">
                             <h2 id="CRPPsicologo"></h2>
                             <h5 id="PrecoPsicologo"></h5>
                             <p id="DescricaoPsicologo"></p>
@@ -256,6 +286,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

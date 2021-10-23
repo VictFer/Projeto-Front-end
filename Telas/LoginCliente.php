@@ -72,9 +72,7 @@
             font-size: 25px;
          }
 
-        
-
-         button[type="submit"]{
+         .btnEntra{
              width:300;
              text-align:center;
 
@@ -108,9 +106,8 @@
          <input type = "password" class = "form-control"
                name = "senha" placeholder = "Senha" id="textSenha" required>
          <h2>
-            <button class = "btn btn-lg btn-primary btn-block" onClick="Authentication()" name = "entrar">Entrar</button>
+            <button class = "btn btn-lg btn-primary btn-block btnEntra" onClick="Authentication()" name = "entrar">Entrar</button>
          </h2>
-         <br>   
          <a href = "CadastroCliente.php">Não possui uma conta? Cadastre-se
       </div>                  
    </body>

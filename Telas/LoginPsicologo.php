@@ -66,9 +66,8 @@
             text-align:center;
          }
 
-         button[type="submit"]{
+         .btnEntraPsi{
              width:300;
-
          }
 
          a{
@@ -101,7 +100,7 @@
                name = "crp" id="textCRP" placeholder = "CRP" required ></br>
 
             <h2>
-               <button class = "btn btn-lg btn-primary btn-block" onClick="Authentication()" name = "entrar">
+               <button class = "btn btn-lg btn-primary btn-block btnEntraPsi" onClick="Authentication()" name = "entrar">
                   Entrar
                </button>
             <h2>

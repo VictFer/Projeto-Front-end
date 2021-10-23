@@ -39,153 +39,180 @@
          }
       </script>
 
-<style>
-  
-  body {
-   /* padding-top: 40px; */
-   /* padding-bottom: 40px; */
-    background-color: #0057B7;
-  }
-
-  .form-signin {
-    max-width: 900px;
-    padding: 15px;
-    margin: 0 auto;
-    border-radius:15px;
-    background-color: #ffffff;
-  }
-
-  .form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 25px;        
-  }
-
-  h1{
-    text-align: center;
-    color: #0057B7;
-    font-size: 25px;
-    margin-bottom: 30px;
-  }
-
-  .botaoenviar{
-    width:870px;
-    text-align:center;
-    margin-top:15px;
-  }
-
-  a{
-    font-size: 15px;
-    color: #0057B7;
-    margin-left:335px;
+  <style>
+    
+    body {
+    /* padding-top: 40px; */
+    /* padding-bottom: 40px; */
+      background-color: #0057B7;
     }
 
+    .form-signin {
+      max-width: 900px;
+      padding: 15px;
+      margin: 0 auto;
+      border-radius:15px;
+      background-color: #ffffff;
+    }
 
-</style>
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 25px;        
+    }
 
-</head>
+    h1{
+      text-align: center;
+      color: #0057B7;
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+
+    .botaoenviar{
+      width:870px;
+      text-align:center;
+      margin-top:15px;
+    }
+
+    a{
+      font-size: 15px;
+      color: #0057B7;
+      margin-left:335px;
+      }
 
 
-<body>
-  <div class = "form-signin" role = "form">
+  </style>
 
-    <h1>Cadastro</h1>
-  
-  <div class="row">
+  </head>
+
+
+  <body>
+    <br>
+    <div class = "form-signin" role = "form">
+
+      <h1>Cadastro</h1>
     
-      <div class="col">
-        <input type="text" class="form-control" name = "email" id="email" placeholder="Email">
-      </div>
-
-      <div class="col">
-        <input type="text" class="form-control" name = "senha" id="senha" placeholder="Senha">
-      </div>
-
-  </div>
-
-    <div class="row">
-
-      <div class="col">
-        <input type="text" class="form-control" name = "nome" id="nome" placeholder="Nome">
-      </div>
-
-      <div class="col">
-        <input type="text" class="form-control" name = "endereco" id="endereco" placeholder="Endereço">
-      </div>
-  
-    </div>
-
-    <div class="row">
-
-      <div class="col">
-        <input type="text" class="form-control" name = "nascimento" id="nascimento" placeholder="Nascimento">
-      </div>
-
-      <div class="col">
-        <input type="text" class="form-control" name = "complemento" id="complemento" placeholder="Complemento">
-      </div>
-  
-    </div>
-
-    <div class="row">
-
-      <div class="col">
-        <input type="text" class="form-control" name = "documento" id="documento" placeholder="Documento">
-      </div>
-
-      <div class="col">
-        <input type="text" class="form-control" name = "cidade" id="cidade" placeholder="Cidade">
-      </div>
-  
-    </div>
-
-    <div class="row">
-
-      <div class="col">
-        <input type="text" class="form-control" name = "telefone" id="telefone" placeholder="Telefone">
-      </div>
-
-      <div class="col">
-        <input type="text" class="form-control" name = "cep" id="cep" placeholder="CEP">
-      </div>
-  
-    </div>
-
     <div class="row">
       
-    <div class="col">
-      <label>Gênero</label>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
-      <label class="form-check-label" for="exampleRadios1">
-      Masculino
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="Feminino" value="option2">
-      <label class="form-check-label" for="exampleRadios2">
-      Feminino
-      </label>
-    </div>
+        <div class="col">
+          <input type="text" class="form-control" name = "email" id="email" placeholder="Email">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name = "senha" id="senha" placeholder="Senha">
+        </div>
+
     </div>
 
-    <div class="col">
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" name = "nome" id="nome" placeholder="Nome">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name = "endereco" id="endereco" placeholder="Endereço">
+        </div>
+    
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" name = "nascimento" id="nascimento" placeholder="Nascimento">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name = "complemento" id="complemento" placeholder="Complemento">
+        </div>
+    
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" name = "documento" id="documento" placeholder="Documento">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name = "cidade" id="cidade" placeholder="Cidade">
+        </div>
+    
+      </div>
+
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" name = "telefone" id="telefone" placeholder="Telefone">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name = "cep" id="cep" placeholder="CEP">
+        </div>
+    
+      </div>
+
+      <div class="row">
+        
+      <div class="col">
+        <label>Gênero</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+        Masculino
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="Feminino" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+        Feminino
+        </label>
+      </div>
+      </div>
+
+      <div class="col">
         <select id="estado" class="form-control">
-        <option selected>Estado</option>
-        <option>SP</option>
-      </select>
+          <option value="" selected>Estado</option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MG">MG</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="PR">PR</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="RS">RS</option>
+          <option value="SC">SC</option>
+          <option value="SE">SE</option>
+          <option value="SP">SP</option>
+          <option value="TO">TO</option>
+        </select>
+      </div>
     </div>
-  </div>
 
-  <button class = "btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name = "entrar">Criar Conta</button>
-            
-    <a href = "LoginCliente.php">Já possui uma conta? Entre
+    <button class = "btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name = "entrar">Criar Conta</button>
+              
+      <a href = "LoginCliente.php">Já possui uma conta? Entre</a>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>
