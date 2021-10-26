@@ -70,7 +70,7 @@
     margin-bottom: 25px;        
   }
 
-  h1{
+  .titulo{
     text-align: center;
     color: #0057B7;
     font-size: 25px;
@@ -96,8 +96,19 @@
 <body>
   <div class = "form-signin" role = "form">
 
-    <h1>Cadastro</h1>
-  
+    <h1 class="titulo">Cadastro</h1>
+
+    <div class="row">
+      <div class="col-3">
+        <label>
+          Adicione Uma foto:
+        </label>
+      </div>
+      <div class="col-12">
+        <input type="file" class="form-control" accept="image/*">
+      </div>
+    </div>
+
   <div class="row">
     
       <div class="col">
@@ -235,7 +246,7 @@
 
       <button class = "btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name = "entrar">Criar Conta</button>
             
-    <a href = "LoginPsicologo.php">Já possui uma conta? Entre
+    <a href = "LoginPsicologo.php">Já possui uma conta? Entre</a>
 
   </div>
 </body>
