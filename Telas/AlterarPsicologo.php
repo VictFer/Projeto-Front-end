@@ -93,8 +93,7 @@
                             </svg>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Alterar Cadastro</a></li>
+                            <li><a class="dropdown-item" href="#">Meus Dados</a></li>
                             <div class="dropdown-divider"></div>
                             <li><a class="dropdown-item" href="#">Sair</a></li>
                         </ul>
@@ -103,42 +102,29 @@
             </div>
         </nav>
 
-        <div class = "form-signin" role = "form">
+        <div class="form-signin" role="form">
 
-            <h1 class="titulo">Cadastro</h1>
-
-            <div class="row">
-
-            <div class="col">
-                <input type="text" class="form-control" name = "email" id="email" placeholder="Email">
-            </div>
-
-            <div class="col">
-                <input type="text" class="form-control" name = "senha" id="senha" placeholder="Senha">
-            </div>
-
-            </div>
+            <h1 class="titulo">Meus Dados</h1>
 
             <div class="row">
-
-            <div class="col">
-                <input type="text" class="form-control" name = "nome" id="nome" placeholder="Nome">
+            <div class="col-3">
+                <label>
+                Adicione Uma foto:
+                </label>
             </div>
-
-            <div class="col">
-                <input type="text" class="form-control" name = "endereco" id="endereco" placeholder="Endereço">
+            <div class="col-12">
+                <input type="file" class="form-control" id="Imagem" accept="image/*" onchange="imageUploaded()">
             </div>
-
             </div>
 
             <div class="row">
 
             <div class="col">
-                <input type="text" class="form-control" name = "nascimento" id="nascimento" placeholder="Nascimento">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" name = "complemento" id="complemento" placeholder="Complemento">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
             </div>
 
             </div>
@@ -146,11 +132,11 @@
             <div class="row">
 
             <div class="col">
-                <input type="text" class="form-control" name = "documento" id="documento" placeholder="Documento">
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" name = "cidade" id="cidade" placeholder="Cidade">
+                <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
             </div>
 
             </div>
@@ -158,90 +144,170 @@
             <div class="row">
 
             <div class="col">
-                <input type="text" class="form-control" name = "telefone" id="telefone" placeholder="Telefone">
+                <input type="text" class="form-control" name="nascimento" id="nascimento" placeholder="Nascimento" required>
             </div>
 
+            <div class="col-3">
+                <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Endereço" required>
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" name="Numero" id="Numero" placeholder="Número" required>
+            </div>
+
+            </div>
+
+            <div class="row">
+
             <div class="col">
-                <input type="text" class="form-control" name = "cep" id="cep" placeholder="CEP">
+                <input type="text" class="form-control" name="documento" id="documento" placeholder="Documento" disabled>
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento" required>
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" required>
             </div>
 
             </div>
 
             <div class="row">
             
-            <div class="col">
-            <label>Gênero</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                Masculino
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Feminino" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                Feminino
-                </label>
-            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone" required>
             </div>
 
-                <div class="col">
-                <select id="estado" class="form-control">
-                    <option value="" selected>Estado</option>
-                    <option value="AC">AC</option>
-                    <option value="AL">AL</option>
-                    <option value="AM">AM</option>
-                    <option value="AP">AP</option>
-                    <option value="BA">BA</option>
-                    <option value="CE">CE</option>
-                    <option value="DF">DF</option>
-                    <option value="ES">ES</option>
-                    <option value="GO">GO</option>
-                    <option value="MA">MA</option>
-                    <option value="MG">MG</option>
-                    <option value="MS">MS</option>
-                    <option value="MT">MT</option>
-                    <option value="PA">PA</option>
-                    <option value="PB">PB</option>
-                    <option value="PE">PE</option>
-                    <option value="PI">PI</option>
-                    <option value="PR">PR</option>
-                    <option value="RJ">RJ</option>
-                    <option value="RN">RN</option>
-                    <option value="RO">RO</option>
-                    <option value="RR">RR</option>
-                    <option value="RS">RS</option>
-                    <option value="SC">SC</option>
-                    <option value="SE">SE</option>
-                    <option value="SP">SP</option>
-                    <option value="TO">TO</option>
+            <div class="col-2">
+                <select id="TipoTelefone" class="form-control"  required>
+                <option value="">Tipo</option>
+                <option value="Celular">Celular</option>
+                <option value="Fixo-Consultorio">Consultório</option>
                 </select>
-                </div>
             </div>
 
-            <hr/>
+            <div class="col">
+                <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" required>
+            </div>
+
+            </div>
 
             <div class="row">
 
             <div class="col">
-                <input type="text" class="form-control" name = "crp" id="crp" placeholder="CRP">
+                <label>Gênero</label>
+                <br>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="Masculino" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Masculino
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="Feminino" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Feminino
+                    </label>
+                </div>
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" name = "valormi" id="valormin" placeholder="Valor Mínimo">
+                <select id="estado" class="form-control"  required>
+                <option value="" selected>Estado</option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AM">AM</option>
+                <option value="AP">AP</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MG">MG</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="PR">PR</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="RS">RS</option>
+                <option value="SC">SC</option>
+                <option value="SE">SE</option>
+                <option value="SP">SP</option>
+                <option value="TO">TO</option>
+                </select>
+            </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+
+            <div class="col">
+                <input type="text" class="form-control" name="crp" id="crp" placeholder="CRP" disabled>
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" name = "valormax" id="valormax" placeholder="Valor Máximo">
+                <input type="text" class="form-control" name="valormin" id="valormin" placeholder="Valor Mínimo" required>
+            </div>
+
+            <div class="col">
+                <input type="text" class="form-control" name="valormax" id="valormax" placeholder="Valor Máximo" required>
             </div>
 
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" name = "descrição" id="descricao" placeholder="Escreva uma breve introdução sobre você e seu trabalho">
+            <input type="text" class="form-control" name="descrição" id="descricao"
+                placeholder="Escreva uma breve introdução sobre você e seu trabalho" required>
             </div>
 
-            <button class = "btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name = "entrar">Criar Conta</button>
+            <div class="row">
+
+            <div class="col">
+                <input type="text" class="form-control" name="Formacao" id="formacao" placeholder="Formação" required>
+            </div>
+
+            </div>
+
+            <div class="row">
+            <div class="col-3">
+                <label>
+                Temas que abordados em sessões:
+                </label>
+            </div>
+            </div>
+
+            <div class="row">
+
+            <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                ANSIEDADE
+                </label>
+            </div>
+            </div>
+            <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    DEPRESSÃO
+                </label>
+            </div>
+            </div>
+
+            </div>
+
+
+            <button class="btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name="entrar">Salvar Dados</button>
 
         </div>
 
