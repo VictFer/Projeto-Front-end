@@ -6,9 +6,8 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <script>
          function Authentication(){
-            var email = document.getElementById('textEmail').value;
-            var password = document.getElementById('textSenha').value;
-            var crp = document.getElementById('textCRP').value;
+            var emailpsico = document.getElementById('textEmail').value;
+            var passwordpsico = document.getElementById('textSenha').value;
             var auth = true; /*Função retorna verdadeiro ou falso*/
             if (auth === true){
                window.location.href = 'AlterarCliente.php';    //tela de exemplo para saber se funciona, a tela inicial do psicologo sera Gerenciamento ou a tela com as informações dele.
@@ -95,9 +94,6 @@
             
             <input type = "password" class = "form-control"
                name = "senha" id="textSenha" placeholder = "Senha" required>
-
-            <input type = "text" class = "form-control" 
-               name = "crp" id="textCRP" placeholder = "CRP" required ></br>
 
             <h2>
                <button class = "btn btn-lg btn-primary btn-block btnEntraPsi" onClick="Authentication()" name = "entrar">
