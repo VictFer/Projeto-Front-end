@@ -62,7 +62,17 @@
                 font-size: 15px;
                 color: #0057B7;
                 margin-left:335px;
-                }
+            }
+
+            .ProfilePicture{
+                vertical-align: middle;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+            .Profile{
+                text-align:center;
+            }
         </style>
 
     </head>
@@ -107,9 +117,15 @@
             <h1 class="titulo">Meus Dados</h1>
 
             <div class="row">
+                <div class="col Profile">
+                    <img src='img/avatar1.png' alt='Avatar' class='ProfilePicture'>
+                </div>
+            </div>
+
+            <div class="row">
             <div class="col-3">
                 <label>
-                Adicione Uma foto:
+                Adicione uma nova foto:
                 </label>
             </div>
             <div class="col-12">
