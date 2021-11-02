@@ -6,11 +6,11 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <script>
          function set(){
-            document.getElementById("textEmail").value = "vinicius00.vc@outlook.com";
-            document.getElementById("textSenha").value = "Vinny312!";
+            document.getElementById("textEmail").value = "vinicius00.vc@gmail.com";
+            document.getElementById("textSenha").value = "Vinny31";
          }
 
-         function loginPsicologo(data) {
+         function loginPsicologo(bodyData) {
 
             const url = 'https://limitless-escarpment-62515.herokuapp.com/api/psychologist/login';
 
@@ -20,26 +20,17 @@
                'Accept': 'application/json, text/plain, */*',
                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(bodyData)
             })
             .then(
                res =>{
-                  if (res.ok){
-                     /*console.log("S");*/
-                     location.href = 'AlterarPsicologo.php';
-                  }else{
-                     /*console.log("N");*/
-                     var erroLogin =
-                     "<div class='alert alert-danger alertando' role='alert'> \
-                        Informações incorretas ! Tente Novamente. \
-                     </div>";
-                     document.getElementById("erroArea").innerHTML = erroLogin;
-                  }
-               }
-            )
+                  return res.json()
+               })
+               .then(data => {location.href = 'AlterarPsicologo.php?id='+data.id})
             .catch(() => console.log("NOT"))
             return request;
          }
+         
          function Authentication(){
             var emailpsico = document.getElementById('textEmail').value;
             var passwordpsico = document.getElementById('textSenha').value;

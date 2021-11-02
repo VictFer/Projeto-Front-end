@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
+        <?php
+            $ID = $_GET['id'];
+        ?>
         <meta charset="UTF-8"/>
         <script>
             function FillChats(){
@@ -16,7 +19,7 @@
                         <span class='badge bg-primary rounded-pill'>14</span> \
                     </a>";
                 
-                document.getElementById("conversas").innerHTML = listadd;
+                document.getElementById("conversasPsicologo").innerHTML = listadd;
             }
         </script>
         <style>
@@ -43,7 +46,6 @@
                 font-size: 16px;
                 margin-bottom: 25px;        
             }
-
             .titulo{
                 text-align: center;
                 color: #0057B7;
@@ -77,6 +79,64 @@
 
     </head>
     <body>
+
+        <?php echo "
+            <input type='hidden' name='idps' id='idps' VALUE='".$ID."'>
+            ";  
+        ?>
+
+        <script>
+            function FindPsico(idPsicologo){
+                var urlApi = "https://limitless-escarpment-62515.herokuapp.com/api/psychologist/"+idPsicologo;
+                const request = fetch(urlApi, {
+                    method: 'get'
+                    })
+                    .then((res) => {return res.json()})
+                    .then(data => 
+                        {
+                            document.getElementById("email").value = data.email;
+                            document.getElementById("senha").value = data.password;
+                            document.getElementById("nome").value = data.name;
+                            document.getElementById("cep").value = data.address.cep;
+                            document.getElementById("nascimento").value = ""+data.birthdayDate[2]+"/"+data.birthdayDate[1]+"/"+data.birthdayDate[0];
+                            document.getElementById("endereco").value = data.address.logradouro;
+                            document.getElementById("Numero").value = data.address.numero;
+                            document.getElementById("documento").value = data.document;
+                            document.getElementById("complemento").value = data.address.complemento;
+                            document.getElementById("bairro").value = data.address.bairro;
+                            document.getElementById("telefone").value = data.contact.number;
+                            document.getElementById("TipoTelefone").value = data.contact.type;/*tipo telefone*/
+                            document.getElementById("cidade").value = data.address.cidade;
+                            if(data.gender == "Masculino"){
+                                document.getElementById("Masculino").checked = true;
+                            }else{
+                                document.getElementById("Feminino").checked = true;
+                            }
+                            document.getElementById("estado").value = data.address.estado;/*estado*/
+                            document.getElementById("crp").value = data.crp;
+                            document.getElementById("valormin").value = data.minValue;
+                            document.getElementById("valormax").value = data.maxValue;
+                            document.getElementById("descricao").value = data.description;
+                            document.getElementById("formacao").value = data.formacao[0].name;
+                            for(var i = 0; i < data.themes.length; i++){
+                                if(data.themes[i] == "ANSIEDADE"){
+                                    document.getElementById("ANSIEDADE").checked = true;
+                                }else if(data.themes[i] == "DEPRESSAO"){
+                                    document.getElementById("DEPRESSAO").checked = true;
+                                }
+                            }
+                            console.log(data.photo);
+                            var Image = "<img src='data:image/png;base64, "+ data.photo +"' alt='Foto de Perfil' class='ProfilePicture' />";
+                            document.getElementById("ProfilePhoto").innerHTML = Image;
+                            //document.getElementById("TEMAS").value = data.document;/*tema*/
+                            //document.getElementById("FOTO").value = data.document;/*foto*/
+                        })
+            }
+            idPsico = document.getElementById('idps').value;
+            console.log(idPsico);
+            FindPsico(idPsico);
+        </script>
+
         <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#0057B7;">
             <a class="navbar-brand" href="index.php">
                 <img src="img/Psico_no_Precinho-logos_white.png" width="214.5" height="21.5" class="d-inline-block align-top" alt="" style="margin-left:15px;" alt="Psico no Precinho">
@@ -117,8 +177,7 @@
             <h1 class="titulo">Meus Dados</h1>
 
             <div class="row">
-                <div class="col Profile">
-                    <img src='img/avatar1.png' alt='Avatar' class='ProfilePicture'>
+                <div class="col Profile" id="ProfilePhoto">
                 </div>
             </div>
 
@@ -140,7 +199,7 @@
             </div>
 
             <div class="col">
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
+                <input type="text" class="form-control" name="senha" id="senha" placeholder="Senha" required>
             </div>
 
             </div>
@@ -230,7 +289,7 @@
 
             <div class="col">
                 <select id="estado" class="form-control"  required>
-                <option value="" selected>Estado</option>
+                <option value="none">Estado</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
                 <option value="AM">AM</option>
@@ -305,15 +364,15 @@
 
             <div class="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="ANSIEDADE">
                 <label class="form-check-label" for="flexCheckDefault">
-                ANSIEDADE
+                    ANSIEDADE
                 </label>
             </div>
             </div>
             <div class="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="DEPRESSAO">
                 <label class="form-check-label" for="flexCheckDefault">
                     DEPRESSÃO
                 </label>
@@ -335,7 +394,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="list-group" id="conversas">
+                    <div class="list-group" id="conversasPsicologo">
                     </div>
                 </div>
                     <div class="modal-footer">
@@ -347,6 +406,5 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
     </body>
 </html>
