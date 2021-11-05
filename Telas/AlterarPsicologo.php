@@ -2,7 +2,7 @@
 <html lang = "en">
     <head>
         <?php
-            $ID = $_GET['id'];
+            $ID = $_GET['id']; //d65239dc-5e70-4d21-9e77-2b05722435a1
         ?>
         <meta charset="UTF-8"/>
         <script>
@@ -20,6 +20,139 @@
                     </a>";
                 
                 document.getElementById("conversasPsicologo").innerHTML = listadd;
+            }
+
+            function imageUploaded() {
+                var file = document.querySelector(
+                    'input[type=file]')['files'][0];
+
+                var reader = new FileReader();
+
+                reader.onload = function () {
+                    base64String = reader.result.replace("data:", "")
+                    .replace(/^.+,/, "");
+
+                    imageBase64Stringsep = base64String;
+                    console.log(base64String);
+                }
+                reader.readAsDataURL(file);
+            }
+
+            function alterarPsicologo(dataAltera, idP){
+                const url = 'https://limitless-escarpment-62515.herokuapp.com/api/psychologist/'+idP;
+
+                const request = fetch(url, {
+                    method: 'put',
+                    headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataAltera)
+                })
+                .then(
+               res =>{
+                  return res.json()
+               })
+                .then(data => console.log(data))
+                .then(data => {
+                    console.log("Alterado");
+                    location.href = 'AlterarPsicologo.php?id='+idP;
+                    })
+                .catch(() => console.log("NOT"))
+                return request;
+            }
+
+            function Alterar(){
+                var idP = document.getElementById('idps').value ;
+                var fotop = document.getElementById('fotostring').value;
+                var emailPsicologo = document.getElementById('email').value ;
+                var passwordPsicologo = document.getElementById('senha').value ;
+                var nome = document.getElementById('nome').value ;
+                var endereco = document.getElementById('endereco').value ;
+                var nascimento = document.getElementById('nascimento').value ;
+                var string_nascimento = nascimento.split("/").reverse() ;
+                var int_nascimento = string_nascimento.map((i) => Number(i));
+                var numeroPsico = document.getElementById('Numero').value ;
+                var numeroPsicologo = parseInt(numeroPsico);
+                var tipoTelefone = document.getElementById('TipoTelefone').value ;
+                var complementoPsicologo = document.getElementById('complemento').value ;
+                var documento = document.getElementById('documento').value ;
+                var cidadePsico = document.getElementById('cidade').value ;
+                var telefone = document.getElementById('telefone').value ;
+                var bairroPsico = document.getElementById('bairro').value ;
+                var cepPsico = document.getElementById('cep').value ;
+                var masc = document.getElementById('Masculino').checked ;
+                var fem = document.getElementById('Feminino').checked ;
+                if (masc === true) {
+                    var genero = "Masculino";
+                } else if (fem === true) {
+                    var genero = "Feminino";
+                } else { var genero = "erro na selecao"; }
+                var estadoPsico = document.getElementById("estado").value;
+                var crpPsicologo = document.getElementById("crp").value;
+                var valorMinimo = document.getElementById("valormin").value;
+                var valorMaximo = document.getElementById("valormax").value;
+                var descricao = document.getElementById("descricao").value;
+                var formacaoPsicologo = document.getElementById("formacao").value;
+
+                var idcontato = document.getElementById("idcontato").value;
+                var idendereco = document.getElementById("idendereco").value;
+                var idformacao = document.getElementById("formacaoid").value;
+
+                var temas = ["Temas"];
+                if(document.getElementById('ANSIEDADE').checked == true){
+                    temas.splice(0, 1);
+                    temas.push("ANSIEDADE");
+                }
+                if(document.getElementById('DEPRESSAO').checked == true){
+                    temas.push("DEPRESSAO");
+                }
+                var body = {
+                    id: idP,
+                    name: nome,
+                    document: documento,
+                    documentType: 'CPF',
+                    photo: fotop,
+                    crp: crpPsicologo,
+                    birthdayDate: int_nascimento,
+                    gender: genero,
+                    minValue: valorMinimo,
+                    maxValue: valorMaximo,
+                    description: descricao,
+                    email: emailPsicologo,
+                    password: passwordPsicologo,
+                    status: "Pendente",
+                    address: {
+                        id: idendereco,
+                        logradouro: endereco,
+                        numero: numeroPsicologo,
+                        complemento: complementoPsicologo,
+                        cep: cepPsico,
+                        bairro: bairroPsico,
+                        cidade: cidadePsico,
+                        estado: estadoPsico
+                    },
+                    contact: {
+                        id: idcontato,
+                        type: tipoTelefone,
+                        number: telefone
+                    },
+                    themes: temas,
+                    formacao: [
+                        {
+                            id: idformacao,
+                            name: formacaoPsicologo
+                        }
+                    ]
+                };
+                console.log(body);
+                alterarPsicologo(body, idP);
+            }
+
+            function AlteraFoto(idP){
+                imageUploaded();
+                document.getElementById("fotostring").value = base64String;
+                Alterar();
             }
         </script>
         <style>
@@ -75,6 +208,10 @@
             .Profile{
                 text-align:center;
             }
+
+            .btnAlteraImg{
+                height:45px;
+            }
         </style>
 
     </head>
@@ -94,6 +231,8 @@
                     .then((res) => {return res.json()})
                     .then(data => 
                         {
+                            console.log(data);
+                            document.getElementById("photop").value = data.photo;
                             document.getElementById("email").value = data.email;
                             document.getElementById("senha").value = data.password;
                             document.getElementById("nome").value = data.name;
@@ -118,6 +257,11 @@
                             document.getElementById("valormax").value = data.maxValue;
                             document.getElementById("descricao").value = data.description;
                             document.getElementById("formacao").value = data.formacao[0].name;
+
+                            document.getElementById("idendereco").value = data.address.id;
+                            document.getElementById("idcontato").value = data.contact.id;
+                            document.getElementById("formacaoid").value = data.formacao[0].id;
+
                             for(var i = 0; i < data.themes.length; i++){
                                 if(data.themes[i] == "ANSIEDADE"){
                                     document.getElementById("ANSIEDADE").checked = true;
@@ -125,7 +269,7 @@
                                     document.getElementById("DEPRESSAO").checked = true;
                                 }
                             }
-                            console.log(data.photo);
+                            //console.log(data.photo);
                             var Image = "<img src='data:image/png;base64, "+ data.photo +"' alt='Foto de Perfil' class='ProfilePicture' />";
                             document.getElementById("ProfilePhoto").innerHTML = Image;
                             //document.getElementById("TEMAS").value = data.document;/*tema*/
@@ -187,10 +331,19 @@
                 Adicione uma nova foto:
                 </label>
             </div>
-            <div class="col-12">
+            <div class="col-10">
                 <input type="file" class="form-control" id="Imagem" accept="image/*" onchange="imageUploaded()">
             </div>
+            <div class="col-2">
+                <button class="btn btn-lg btn-primary btn-block btnAlteraImg" id="btnAlteraImg" onClick="<?php echo "AlteraFoto('".$ID."')"?>">Alterar</button>
             </div>
+            </div>
+
+            <input type="hidden" name="photop" id="photop">
+            <input type="hidden" name="formacaoid" id="formacaoid">
+            <input type='hidden' name='idcontato' id='idcontato'>
+            <input type='hidden' name='idendereco' id='idendereco'>
+            <input type='hidden' name='fotostring' id='fotostring'>
 
             <div class="row">
 
@@ -381,8 +534,7 @@
 
             </div>
 
-
-            <button class="btn btn-lg btn-primary btn-block botaoenviar" onClick="Cadastro()" name="entrar">Salvar Dados</button>
+            <button class="btn btn-lg btn-primary btn-block botaoenviar" onClick="Alterar()" name="entrar">Salvar Dados</button>
 
         </div>
 

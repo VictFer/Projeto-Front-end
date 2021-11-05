@@ -72,6 +72,13 @@
       var valorMaximo = document.getElementById("valormax").value;
       var descricao = document.getElementById("descricao").value;
       var formacaoPsicologo = document.getElementById("formacao").value;
+      var temas = ["Temas"];
+      if(document.getElementById('ANSIEDADE').checked == true){
+        temas.push("ANSIEDADE");
+      }
+      if(document.getElementById('DEPRESSAO').checked == true){
+        temas.push("DEPRESSAO");
+      }
       //console.log(array_nascimento + email + password + nome + endereco + nascimento + complemento + documento + cidade + telefone + cep + genero + estado + crp + valorMinimo + valorMaximo + descricao + base64String)
       var body = {
         name: nome,
@@ -99,7 +106,7 @@
           type: tipoTelefone,
           number: telefone
         },
-        themes: ['ANSIEDADE'],
+        themes: temas,
         formacao: [{
           name: formacaoPsicologo
         }]
